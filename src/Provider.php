@@ -4,8 +4,9 @@
 namespace SocialiteProviders\Casdoor;
 
 
-use GuzzleHttp\RequestOptions;
-use Lcobucci\JWT\Parser;
+use MiladRahimi\Jwt\Cryptography\Algorithms\Rsa\RS256Verifier;
+use MiladRahimi\Jwt\Cryptography\Keys\RsaPublicKey;
+use MiladRahimi\Jwt\Parser;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
 
@@ -26,7 +27,7 @@ class Provider extends AbstractProvider
      */
     public static function additionalConfigKeys()
     {
-        return ['url'];
+        return ['url', 'jwt_key'];
     }
 
     /**
@@ -50,9 +51,9 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $parser = new Parser();
-        $jwtToken = $parser->parse($token);
-        return $jwtToken->getClaims();
+        $signer = new RS256Verifier(new RsaPublicKey($this->getConfig('jwt_key')));
+        $parser = new Parser($signer);
+        return $parser->parse($token);
     }
 
     /**
@@ -62,7 +63,7 @@ class Provider extends AbstractProvider
     {
         $data = [];
         foreach ($user as $key => $valueObj){
-            $data[$key] = $valueObj->getValue();
+            $data[$key] = $valueObj;
         }
         return (new User())->setRaw($user)->map($data);
     }

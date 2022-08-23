@@ -1,21 +1,29 @@
 {
     "name": "srako/laravel-casdoor",
     "description": "Laravel Client SDK for Casdoor",
+    "keywords": [
+        "laravel",
+        "oauth",
+        "provider",
+        "socialite",
+        "casdoor"
+    ],
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Srako\\LaravelCasdoor\\": "src/"
+            "SocialiteProviders\\Casdoor\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "srako<srakor@163.com>"
+            "name": "srako",
+            "email": "srakor@163.com"
         }
     ],
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
         "socialiteproviders/manager": "^4.1",
-        "casdoor/casdoor-php-sdk": "dev-master"
+        "miladrahimi/php-jwt": "^2.1"
     }
 }
