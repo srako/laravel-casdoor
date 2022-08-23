@@ -12,5 +12,10 @@
             "name": "srako<srakor@163.com>"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-json": "*",
+        "socialiteproviders/manager": "^4.1",
+        "casdoor/casdoor-php-sdk": "dev-master"
+    }
 }
