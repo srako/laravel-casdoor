@@ -1,29 +1,30 @@
 {
-    "name": "srako/laravel-casdoor",
-    "description": "Laravel Client SDK for Casdoor",
-    "keywords": [
-        "laravel",
-        "oauth",
-        "provider",
-        "socialite",
-        "casdoor"
-    ],
-    "type": "library",
-    "autoload": {
-        "psr-4": {
-            "SocialiteProviders\\Casdoor\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "srako",
-            "email": "srakor@163.com"
-        }
-    ],
-    "require": {
-        "php": "^7.4 || ^8.0",
-        "ext-json": "*",
-        "socialiteproviders/manager": "^4.1",
-        "miladrahimi/php-jwt": "^2.1"
+  "name": "srako/laravel-casdoor",
+  "description": "Laravel Client SDK for Casdoor",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "oauth",
+    "provider",
+    "socialite",
+    "casdoor"
+  ],
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "SocialiteProviders\\Casdoor\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "srako",
+      "email": "srakor@163.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "ext-json": "*",
+    "socialiteproviders/manager": "^4.1",
+    "miladrahimi/php-jwt": "^2.1"
+  }
 }
